@@ -10,5 +10,10 @@
       .topbar-inner
         .container
           = link_to "Twatter", root_path, class: "brand"
+          %ul.nav.secondary-nav
+            - if user_signed_in?
+              %li= link_to "Sign out", destroy_user_session
+            - else
+              %li= link_to "Sign in", new_user_session_path
     .container
       = yield
