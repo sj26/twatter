@@ -11,6 +11,7 @@ group :assets do
   gem 'bootstrap-sass'
 end
 
+gem 'haml-rails'
 gem 'jquery-rails'
 gem 'devise'
 
