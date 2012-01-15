@@ -12,7 +12,7 @@ div.tweets
     a
       color: #666
 
-.new_tweet
+#new_tweet
   #tweet_text
     display: block
     box-sizing: border-box
@@ -34,7 +34,7 @@ div.tweets
     vertical-align: middle
     &.over
       color: red
-  &.focused
+  &.expanded, .tweets-new &
     #tweet_text
       height: 3 * 18px + 4px * 2
     .hide-show

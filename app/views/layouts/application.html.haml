@@ -12,6 +12,7 @@
           = link_to "Twatter", root_path, class: "brand"
           %ul.nav.secondary-nav
             - if user_signed_in?
+              %li= activated_link_to "Compose", new_tweet_path
               %li= activated_link_to current_user, current_user
               %li= activated_link_to "Sign out", destroy_user_session_path
             - else

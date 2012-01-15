@@ -7,7 +7,7 @@ Twatter::Application.routes.draw do
 
   devise_for :users
 
-  resources :tweets, only: [:create, :show]
+  resources :tweets, only: [:new, :create, :show]
   resource :public_timeline, only: :show
   resources :user_timelines, only: :show, path: ""
   resources :users, only: [:edit, :update], path: "" do
