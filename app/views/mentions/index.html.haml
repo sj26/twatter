@@ -1,3 +1,5 @@
 = extends "timeline/show" do
   = replace :tweet_form do
     %h1 #{user} mentions
+  = prepend :tweets do
+    = render "users/nav"

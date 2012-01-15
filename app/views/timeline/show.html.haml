@@ -30,6 +30,5 @@
           = link_to user_timeline_path(user) do
             %output= user.tweets.count
             tweets
-      .mentions= activated_link_to "@#{user} mentions", user_mentions_path(user)
 
 

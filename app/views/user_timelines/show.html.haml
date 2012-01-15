@@ -1,12 +1,5 @@
 = extends "timeline/show" do
   = replace :tweet_form do
     %h1= user
-    - if user_signed_in?
-      - if user == current_user
-        .edit= link_to "Edit Profile", edit_user_path(user), class: "btn"
-      - elsif current_user.follower_follows.exists?(followee_id: user.id)
-        .unfollow= link_to "Unfollow", unfollow_user_path(user), class: "btn"
-      - else
-        .follow= link_to "Follow", follow_user_path(user), class: "btn"
-    - else
-      .sign-in-to-follow #{link_to "Sign in", new_user_session_path, class: "btn"} to follow
+  = prepend :tweets do
+    = render "users/nav"

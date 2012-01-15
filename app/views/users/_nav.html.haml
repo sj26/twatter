@@ -1,0 +1,18 @@
+= area :user_actions do
+  .user_actions
+    - if user_signed_in?
+      - if user == current_user
+        .edit= link_to "Edit Profile", edit_user_path(user), class: "btn"
+      - elsif current_user.follower_follows.exists?(followee_id: user.id)
+        .unfollow= link_to "Unfollow", unfollow_user_path(user), class: "danger btn", data: {"standard-text" => "Following", "standard-class" => "success btn"}
+      - else
+        .follow= link_to "Follow", follow_user_path(user), class: "success btn"
+    - else
+      .sign-in-to-follow #{link_to "Sign in", new_user_session_path, class: "info btn"} to follow
+
+= area :user_tabs do
+  %ul.tabs.user_tabs
+    = activated_content_tag :li, user_timeline_path(user), exact: true do
+      = link_to "Timeline", user_timeline_path(user)
+    = activated_content_tag :li, user_mentions_path(user) do
+      = link_to "Mentions", user_mentions_path(user)
