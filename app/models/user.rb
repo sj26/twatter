@@ -1,9 +1,23 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :rememberable, :trackable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :username, :email, :password, :password_confirmation, :remember_me
+
+  validates :username, presence: true, uniqueness: true, length: {minimum: 3, maximum: 15}, format: {with: /\A[a-z0-9._-]+\Z/i}
+  validates :email, uniqueness: true, format: {with: /@/}, allow_blank: true
+
+  def self.find_for_authentication conditions
+    Rails.logger.info "#{self.inspect}.find_for_authentication #{conditions.inspect}"
+    find_or_create_by_username(conditions[:username]).tap { |user| Rails.logger.info user.errors.inspect }
+  end
+
+  def valid_password? password
+    Rails.logger.info "#{self.inspect}#valid_password? #{password.inspect}"
+    if encrypted_password.blank? and password.present?
+      self.password = password
+      save!
+    else
+      super
+    end
+  end
 end
