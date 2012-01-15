@@ -9,12 +9,10 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, format: {with: /@/}, allow_blank: true
 
   def self.find_for_authentication conditions
-    Rails.logger.info "#{self.inspect}.find_for_authentication #{conditions.inspect}"
-    find_or_create_by_username(conditions[:username]).tap { |user| Rails.logger.info user.errors.inspect }
+    find_or_create_by_username conditions[:username]
   end
 
   def valid_password? password
-    Rails.logger.info "#{self.inspect}#valid_password? #{password.inspect}"
     if encrypted_password.blank? and password.present?
       self.password = password
       save!
