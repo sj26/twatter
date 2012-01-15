@@ -1,13 +1,13 @@
 %h1= @user.username
 - if user_signed_in?
-  .follow.signed-in
-    - if current_user.follower_follows.exists?(followee_id: @user.id)
-      = link_to "Unfollow", action: "unfollow"
-    - else
-      = link_to "Follow", action: "follow"
+  - if @user == current_user
+    .edit= link_to "Edit Profile", edit_user_path(@user), class: "btn"
+  - elsif current_user.follower_follows.exists?(followee_id: @user.id)
+    .unfollow= link_to "Unfollow", action: "unfollow"
+  - else
+    .follow= link_to "Follow", action: "follow"
 - else
-  .follow.signed-out
-    #{link_to "Sign in", new_user_session_path} to follow
+  .sign-in-to-follow #{link_to "Sign in", new_user_session_path} to follow
 .tweets
   %h2 Tweets
   = render @user.tweets

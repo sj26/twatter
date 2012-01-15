@@ -1,0 +1,14 @@
+%h1 Edit Your Profile
+= form_for @user do |form|
+  %fieldset
+    .clearfix
+      = form.label :username
+      .input= form.text_field :username
+
+    .clearfix
+      = form.label :email
+      .input= form.email_field :email
+
+    .clearfix
+      .actions
+        = form.submit "Update Profile", class: "btn primary"

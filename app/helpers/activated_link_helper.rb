@@ -32,7 +32,7 @@ module ActivatedLinkHelper
     end
 
     html_options[:class] ||= []
-    html_options[:class].split! /\s+/ if html_options[:class].is_a? String
+    html_options[:class] = html_options[:class].split /\s+/ if html_options[:class].is_a? String
     html_options[:class] << "#{"in" unless active}active"
 
     link_to name, options, html_options
