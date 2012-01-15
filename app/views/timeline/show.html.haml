@@ -14,14 +14,15 @@
     = area :sidebar do
       .user
         = link_to user, user
-      .followers
-        %output= user.followers.count
-        followers
-      .following
-        %output= user.following.count
-        following
-      .tweets
-        %output= user.tweets.count
-        tweets
+      .row
+        .followers.span2
+          %output= user.followers.count
+          followers
+        .following.span2
+          %output= user.following.count
+          following
+        .tweets.span2
+          %output= user.tweets.count
+          tweets
 
 
