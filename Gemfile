@@ -11,6 +11,7 @@ group :assets do
   gem 'bootstrap-sass'
 end
 
+gem 'nestive', git: 'git://github.com/sj26/nestive.git'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'devise'
