@@ -17,14 +17,17 @@
         = link_to user, user
       .row
         .followers.span2
-          %output= user.followers.count
-          followers
+          = link_to user_followers_path(user) do
+            %output= user.followers.count
+            followers
         .following.span2
-          %output= user.following.count
-          following
+          = link_to user_followees_path(user) do
+            %output= user.following.count
+            following
         .tweets.span2
-          %output= user.tweets.count
-          tweets
+          = link_to user_timeline_path(user) do
+            %output= user.tweets.count
+            tweets
       .mentions= activated_link_to "@#{user} mentions", user_mentions_path(user)
 
 

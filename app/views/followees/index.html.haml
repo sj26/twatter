@@ -1,0 +1,8 @@
+%h1 @#{user} is following
+- if user.following.present?
+  .followees
+    - user.following.each do |followee|
+      .followee= link_to followee, followee
+- else
+  %p Nobody!
+

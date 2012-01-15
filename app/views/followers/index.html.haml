@@ -1,0 +1,7 @@
+%h1 @#{user} is followed by
+- if user.followers.present?
+  .followers
+    - user.followers.each do
+      .follower= link_to user, user
+- else
+  %p Nobody!
