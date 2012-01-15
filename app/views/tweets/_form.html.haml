@@ -1,5 +1,9 @@
-= form_for Tweet.new do |form|
-  %h2 What's Happening?
+= form_for Tweet.new(params[:tweet]) do |form|
+  - if form.object.reply_to.present?
+    %h2 Reply to @#{link_to form.object.reply_to.user, form.object.reply_to.user}
+    = form.hidden_field :reply_to_id
+  - else
+    %h2 What's Happening?
   .clearfix
     = form.text_area :text
     .hide-show

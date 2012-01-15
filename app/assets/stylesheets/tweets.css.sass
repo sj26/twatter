@@ -7,17 +7,20 @@ div.tweets
 .tweet
   .mention
     color: #ccc
-  .created_at, .destroy
+  .created_at, .reply_to, .reply, .destroy
     display: block
     float: left
     color: #666
     a
       color: #666
-  .destroy
+  .reply_to:before
+    // An escaped, non-breaking space
+    content: '\a0 '
+  .reply, .destroy
     display: none
     padding-left: 10px
   &:hover
-    .destroy
+    .reply, .destroy
       display: block
 
 #new_tweet

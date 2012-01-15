@@ -24,6 +24,11 @@ class TweetsController < ApplicationController
 
 protected
 
+  def reply_to
+    @reply_to ||= Tweet.find params[:tweet][:reply_to_id]
+  end
+  helper_method :reply_to
+
   def tweet
     @tweet ||= Tweet.find params[:id]
   end
