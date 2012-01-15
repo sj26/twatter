@@ -5,12 +5,21 @@ div.tweets
     padding-top: 10px
 
 .tweet
-  .mention
-    color: #ccc
+  position: relative
+  padding-left: 10px + 48px
+  .avatar
+    position: relative
+    float: left
+    margin-left: -58px
+  .text
+    .mention
+      color: #ccc
   .created_at, .reply_to, .reply, .destroy
     display: block
     float: left
+  .bottom
     color: #666
+    font-size: 85%
     a
       color: #666
   .reply_to:before

@@ -1,6 +1,7 @@
 %h1 Edit Your Profile
 = form_for user do |form|
   %fieldset
+
     .clearfix
       = form.label :username
       .input= form.text_field :username
@@ -8,6 +9,26 @@
     .clearfix
       = form.label :email
       .input= form.email_field :email
+
+  %fieldset
+    %legend Avatar
+
+    - if user.avatar?
+      .clearfix
+        %label Current Avatar
+        .input
+          = image_tag form.object.avatar.url
+          = form.hidden_field :avatar_cache
+
+      .clearfix
+        .input.check_box
+          = form.check_box :remove_avatar
+          = form.label :remove_avatar, "Remove Avatar"
+
+    .clearfix
+      = form.label :avatar, "Upload New Avatar"
+      .input= form.file_field :avatar
+
 
     .clearfix
       .actions

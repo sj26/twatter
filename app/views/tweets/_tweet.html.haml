@@ -1,7 +1,10 @@
 %div[tweet]
+  .avatar
+    = link_to tweet.user do
+      = image_tag tweet.user.avatar.list.url, alt: tweet.user
   .user= link_to tweet.user, tweet.user
   .text= format_tweet tweet
-  .clearfix
+  .bottom.clearfix
     .created_at= link_to "#{time_ago_in_words tweet.created_at} ago", tweet
     - if tweet.reply_to.present?
       .reply_to= link_to "in reply to #{tweet.reply_to.user}", tweet.reply_to

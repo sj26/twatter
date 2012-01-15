@@ -8,11 +8,14 @@ class User < ActiveRecord::Base
   has_many :following, through: :follower_follows, source: :followee
   has_many :following_tweets, through: :following, source: :tweets
 
+  mount_uploader :avatar, AvatarUploader
+
   def tweets_and_following_tweets
     Tweet.joins("LEFT JOIN follows ON follows.followee_id = tweets.user_id").where("tweets.user_id = ? OR follows.follower_id = ?", id, id)
   end
 
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :avatar, :avatar_cache, :remove_avatar
 
   validates :username, presence: true, uniqueness: true, length: {minimum: 3, maximum: 15}, format: {with: /\A[a-z0-9._-]+\Z/i}
   validates :email, uniqueness: true, format: {with: /@/}, allow_blank: true
