@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :rememberable, :trackable
 
+  has_many :statuses
+
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
 
   validates :username, presence: true, uniqueness: true, length: {minimum: 3, maximum: 15}, format: {with: /\A[a-z0-9._-]+\Z/i}
@@ -19,5 +21,9 @@ class User < ActiveRecord::Base
     else
       super
     end
+  end
+
+  def to_s
+    username
   end
 end
