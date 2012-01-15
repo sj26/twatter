@@ -3,7 +3,7 @@ class UserTimelinesController < TimelineController
 protected
 
   def tweets
-    @tweets ||= current_user.tweets.order("tweets.created_at desc")
+    @tweets ||= user.tweets.order("tweets.created_at desc")
   end
   helper_method :tweets
 
