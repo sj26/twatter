@@ -4,7 +4,7 @@ module TweetsHelper
       if user = User.find_by_username(mention.from(1))
         content_tag(:span, "@#{link_to user, user}".html_safe, class: "mention").html_safe
       else
-        username
+        mention
       end
     end.html_safe
   end
