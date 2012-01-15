@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :prepare_user
-  before_filter :prepare_user
+  before_filter :only_current_user_may_edit, only: [:edit, :update]
+  before_filter :current_user_may_not_follow_self, only: [:follow, :unfollow]
 
   def show
   end
@@ -32,4 +32,12 @@ protected
     @user ||= User.find_by_username! params[:id]
   end
   helper_method :user
+
+  def only_current_user_may_edit
+    head :unauthorized unless user == current_user
+  end
+
+  def current_user_may_not_follow_self
+    head :bad_request if user == current_user
+  end
 end
