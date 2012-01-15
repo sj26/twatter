@@ -14,5 +14,6 @@ Twatter::Application.routes.draw do
     member do
       get :follow, :unfollow
     end
+    resources :mentions, only: :index
   end
 end

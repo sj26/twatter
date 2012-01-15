@@ -25,5 +25,6 @@
         .tweets.span2
           %output= user.tweets.count
           tweets
+      .mentions= activated_link_to "@#{user} mentions", user_mentions_path(user)
 
 
