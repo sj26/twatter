@@ -1,7 +1,7 @@
 = form_for Tweet.new do |form|
   %h2 What's Happening?
   .clearfix
-    = form.text_area :text, data: {autogrow: true}
+    = form.text_area :text
     .hide-show
       = form.submit "Tweet", class: "btn primary"
 
