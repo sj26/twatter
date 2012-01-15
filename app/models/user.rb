@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   has_many :following, through: :follower_follows, source: :followee
   has_many :following_statuses, through: :following, source: :statuses
 
+  def statuses_and_following_statuses
+    Status.joins("LEFT JOIN follows ON follows.followee_id = statuses.user_id").where("statuses.user_id = ? OR follows.follower_id = ?", id, id)
+  end
+
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
 
   validates :username, presence: true, uniqueness: true, length: {minimum: 3, maximum: 15}, format: {with: /\A[a-z0-9._-]+\Z/i}
