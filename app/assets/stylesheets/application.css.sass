@@ -4,3 +4,12 @@
 body
   padding-top: 50px
 
+.clearfix
+  zoom: 1
+  &:before, &:after
+    display: table
+    content: ""
+    zoom: 1
+  &:after
+    clear: both
+

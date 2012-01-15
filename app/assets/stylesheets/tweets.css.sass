@@ -7,10 +7,18 @@ div.tweets
 .tweet
   .mention
     color: #ccc
-  .created_at
+  .created_at, .destroy
+    display: block
+    float: left
     color: #666
     a
       color: #666
+  .destroy
+    display: none
+    padding-left: 10px
+  &:hover
+    .destroy
+      display: block
 
 #new_tweet
   #tweet_text

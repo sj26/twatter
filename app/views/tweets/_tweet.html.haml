@@ -1,5 +1,8 @@
 %div[tweet]
   .user= link_to tweet.user, tweet.user
   .text= format_tweet tweet
-  .created_at= link_to "#{time_ago_in_words tweet.created_at} ago", tweet
+  .clearfix
+    .created_at= link_to "#{time_ago_in_words tweet.created_at} ago", tweet
+    - if current_user == tweet.user
+      .destroy= link_to "Delete", tweet, data: {method: "delete", confirm: "Are you sure you want to delete this tweet?"}
 
