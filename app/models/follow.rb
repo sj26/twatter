@@ -5,5 +5,5 @@ class Follow < ActiveRecord::Base
   has_many :followee_tweets, through: :followee
 
   validates :follower, :followee, presence: true
-  validates :follower_id, uniqueness: {scope: "follower_id"}
+  validates :follower_id, uniqueness: {scope: "followee_id"}
 end
