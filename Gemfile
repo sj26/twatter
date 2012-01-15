@@ -15,4 +15,6 @@ gem 'nestive', git: 'git://github.com/sj26/nestive.git'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'devise'
+gem 'carrierwave'
+gem 'rmagick'
 
