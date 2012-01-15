@@ -6,6 +6,7 @@ Twatter::Application.routes.draw do
   root to: "home#show"
 
   resources :statuses, only: [:create, :show]
+  resources :users, only: :show, path: ""
 
   devise_for :users
 end
