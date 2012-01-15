@@ -41,6 +41,7 @@ div.tweets
     -webkit-transition: height linear 0.2s, border linear 0.2s, box-shadow linear 0.2s
     -moz-transition: height linear 0.2s, border linear 0.2s, box-shadow linear 0.2s
     transition: height linear 0.2s, border linear 0.2s, box-shadow linear 0.2s
+    overflow: hidden
   .hide-show
     float: right
     margin-top: 10px
@@ -57,6 +58,7 @@ div.tweets
   &.expanded, .tweets-new &
     #tweet_text
       height: 3 * 18px + 4px * 2
+      overflow: scroll
     .hide-show
       display: block
 
