@@ -1,0 +1,5 @@
+%div[tweet]
+  .user= link_to tweet.user, tweet.user
+  .text= tweet.text
+  .created_at= link_to time_ago_in_words(tweet.created_at), tweet
+

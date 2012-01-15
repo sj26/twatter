@@ -1,15 +1,15 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :rememberable, :trackable
 
-  has_many :statuses
+  has_many :tweets
   has_many :followee_follows, class_name: "Follow", foreign_key: "followee_id"
   has_many :follower_follows, class_name: "Follow", foreign_key: "follower_id"
   has_many :followers, through: :followee_follows, source: :follower
   has_many :following, through: :follower_follows, source: :followee
-  has_many :following_statuses, through: :following, source: :statuses
+  has_many :following_tweets, through: :following, source: :tweets
 
-  def statuses_and_following_statuses
-    Status.joins("LEFT JOIN follows ON follows.followee_id = statuses.user_id").where("statuses.user_id = ? OR follows.follower_id = ?", id, id)
+  def tweets_and_following_tweets
+    Tweet.joins("LEFT JOIN follows ON follows.followee_id = tweets.user_id").where("tweets.user_id = ? OR follows.follower_id = ?", id, id)
   end
 
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me

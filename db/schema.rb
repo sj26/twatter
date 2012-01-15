@@ -20,17 +20,17 @@ ActiveRecord::Schema.define(:version => 20120115032646) do
     t.datetime "updated_at"
   end
 
-  add_index "follows", ["followee_id"], :name => "index_follows_on_followee_id"
-  add_index "follows", ["follower_id"], :name => "index_follows_on_follower_id"
+  add_index "follows", ["followee_id", "follower_id"], :name => "index_follows_on_followee_id_and_follower_id"
+  add_index "follows", ["follower_id", "followee_id"], :name => "index_follows_on_follower_id_and_followee_id", :unique => true
 
-  create_table "statuses", :force => true do |t|
+  create_table "tweets", :force => true do |t|
     t.integer  "user_id"
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "statuses", ["user_id"], :name => "index_statuses_on_user_id"
+  add_index "tweets", ["user_id"], :name => "index_tweets_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username",                                           :null => false

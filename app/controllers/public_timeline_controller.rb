@@ -1,8 +1,8 @@
 class PublicTimelineController < TimelineController
 protected
-  def statuses
-    @statuses ||= Status.all
+  def tweets
+    @tweets ||= Tweet.all
   end
-  helper_method :statuses
+  helper_method :tweets
 end
 
