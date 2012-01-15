@@ -1,5 +1,8 @@
 = form_for Tweet.new do |form|
-  = form.text_field :text
-  = form.submit "Tweet"
+  %h2 What's Happening?
+  .clearfix
+    = form.text_area :text, data: {autogrow: true}
+    .hide-show
+      = form.submit "Tweet", class: "btn primary"
 
 = render tweets

@@ -1,8 +1,8 @@
-%h1= @user.username
+%h1= user.username
 - if user_signed_in?
-  - if @user == current_user
-    .edit= link_to "Edit Profile", edit_user_path(@user), class: "btn"
-  - elsif current_user.follower_follows.exists?(followee_id: @user.id)
+  - if user == current_user
+    .edit= link_to "Edit Profile", edit_user_path(user), class: "btn"
+  - elsif current_user.follower_follows.exists?(followee_id: user.id)
     .unfollow= link_to "Unfollow", action: "unfollow"
   - else
     .follow= link_to "Follow", action: "follow"
@@ -10,4 +10,4 @@
   .sign-in-to-follow #{link_to "Sign in", new_user_session_path} to follow
 .tweets
   %h2 Tweets
-  = render @user.tweets
+  = render user.tweets
