@@ -1,8 +1,11 @@
-%h1 @#{user} is following
+%h1 #{user} is following
 - if user.following.present?
   .followees
     - user.following.each do |followee|
-      .followee= link_to followee, followee
+      .followee
+        = link_to followee do
+          .avatar= image_tag followee.avatar.list.url, alt: followee
+          .name= followee
 - else
   %p Nobody!
 
