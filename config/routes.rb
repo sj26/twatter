@@ -5,12 +5,12 @@ Twatter::Application.routes.draw do
 
   root to: "home#show"
 
-  resources :tweets, only: [:create, :show]
-  get :public_timeline, to: "public_timeline#show"
-
   devise_for :users
 
-  resources(:users, only: [:show, :edit, :update], path: "") do
+  resources :tweets, only: [:create, :show]
+  resource :public_timeline, only: :show
+  resources :user_timelines, only: :show, path: ""
+  resources :users, only: [:edit, :update], path: "" do
     member do
       get :follow, :unfollow
     end

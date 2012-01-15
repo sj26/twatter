@@ -1,25 +1,22 @@
 .row
   .span10.content
-    = form_for Tweet.new do |form|
-      %h2 What's Happening?
-      .clearfix
-        = form.text_area :text
-        .hide-show
-          = form.submit "Tweet", class: "btn primary"
-
-    = render tweets
-
+    = area :content do
+      = area :tweet_form do
+        = render "tweet_form"
+      = area :tweets do
+        = render tweets
   .span6.sidebar
-    - if user_signed_in?
+    = area :sidebar do
       .user
-        = link_to current_user, current_user
+        = link_to user, user
       .followers
-        %output= current_user.followers.count
+        %output= user.followers.count
         followers
       .following
-        %output= current_user.following.count
+        %output= user.following.count
         following
       .tweets
-        %output= current_user.tweets.count
+        %output= user.tweets.count
         tweets
+
 
