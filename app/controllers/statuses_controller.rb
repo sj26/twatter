@@ -7,4 +7,8 @@ class StatusesController < ApplicationController
       redirect_to :back, alert: "Nope, try again."
     end
   end
+
+  def show
+    @status = Status.find(params[:id])
+  end
 end
