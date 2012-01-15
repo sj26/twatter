@@ -2,6 +2,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :rememberable, :trackable
 
   has_many :statuses
+  has_many :followee_follows, class_name: "Follow", foreign_key: "followee_id"
+  has_many :follower_follows, class_name: "Follow", foreign_key: "follower_id"
+  has_many :followers, through: :followee_follows, source: :follower
+  has_many :following, through: :follower_follows, source: :followee
+  has_many :following_statuses, through: :following, source: :statuses
 
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
 

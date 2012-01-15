@@ -10,5 +10,9 @@ Twatter::Application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: :show, path: ""
+  resources(:users, only: :show, path: "") do
+    member do
+      get :follow, :unfollow
+    end
+  end
 end
