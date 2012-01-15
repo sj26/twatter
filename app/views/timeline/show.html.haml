@@ -4,7 +4,8 @@
       = area :tweet_form do
         = render "tweet_form"
       = area :tweets do
-        = render tweets
+        .tweets
+          = render tweets
         = area :pagination do
           - if params[:page].present? and params[:page].to_i > 0
             = link_to "&lsaquo; Newer".html_safe, url_for(params.merge(page: params[:page].to_i - 1)), class: "btn"
