@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  def tweets_and_following_tweets
-    Tweet.joins("LEFT JOIN follows ON follows.followee_id = tweets.user_id").where("tweets.user_id = ? OR follows.follower_id = ?", id, id)
+  def home_tweets
+    Tweet.joins("LEFT JOIN follows ON follows.followee_id = tweets.user_id").where("tweets.user_id = ? OR follows.follower_id = ? OR tweets.text LIKE ?", id, id, "%@#{username.gsub("%", "%%")}%")
   end
 
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
