@@ -9,3 +9,9 @@ test:
   database: twatter_test
   username: test
   password: test
+
+production:
+  adapter: postgresql
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
