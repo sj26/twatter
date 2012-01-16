@@ -1,0 +1,6 @@
+= extends "timeline/show" do
+  - prepend :content do
+    = render "tweets/form"
+    %h1 My Timeline
+  - append :sidebar do
+    = render partial: "users/sidebar", object: current_user, as: "user"

@@ -9,18 +9,23 @@
     .topbar
       .topbar-inner
         .container
-          = link_to "Twatter", root_path, class: "brand"
+          = activated_content_tag :h3, root_path, exact: true, class: "root" do
+            = link_to "Twatter", root_path, class: "brand"
+          - if user_signed_in?
+            %ul.nav
+              = activated_content_tag :li, home_path, class: "home" do
+                = link_to "Timeline", home_path, class: "home"
           %ul.nav.secondary-nav
             - if user_signed_in?
               = activated_content_tag :li, new_tweet_path, class: "compose" do
-                = activated_link_to "Compose", new_tweet_path
+                = link_to "Compose", new_tweet_path
               = activated_content_tag :li, current_user, class: "user" do
-                = activated_link_to current_user, current_user
+                = link_to current_user, current_user
               = activated_content_tag :li, destroy_user_session_path, class: "sign_out" do
-                = activated_link_to "Sign out", destroy_user_session_path
+                = link_to "Sign out", destroy_user_session_path
             - else
               = activated_content_tag :li, new_user_session_path, class: "sign_in" do
-                = activated_link_to "Sign in", new_user_session_path
+                = link_to "Sign in", new_user_session_path
     .container
       = flashes
       = yield

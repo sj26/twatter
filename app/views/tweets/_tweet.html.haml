@@ -8,7 +8,8 @@
     .created_at= link_to "#{time_ago_in_words tweet.created_at} ago", tweet
     - if tweet.reply_to.present?
       .reply_to= link_to "in reply to #{tweet.reply_to.user}", tweet.reply_to
-    .reply= link_to "Reply", new_tweet_path(tweet: {reply_to_id: tweet.id})
-    - if current_user == tweet.user
-      .destroy= link_to "Delete", tweet, data: {method: "delete", confirm: "Are you sure you want to delete this tweet?"}
+    - if user_signed_in?
+      .reply= link_to "Reply", new_tweet_path(tweet: {reply_to_id: tweet.id})
+      - if current_user == tweet.user
+        .destroy= link_to "Delete", tweet, data: {method: "delete", confirm: "Are you sure you want to delete this tweet?"}
 

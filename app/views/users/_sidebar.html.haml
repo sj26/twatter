@@ -1,0 +1,19 @@
+.user.clearfix
+  = link_to user do
+    .avatar= image_tag user.avatar.list.url
+    .username= user
+.row
+  .followers.span2
+    = link_to user_followers_path(user) do
+      %output= user.followers.count
+      followers
+  .following.span2
+    = link_to user_followees_path(user) do
+      %output= user.following.count
+      following
+  .tweets.span2
+    = link_to user_timeline_path(user) do
+      %output= user.tweets.count
+      tweets
+
+

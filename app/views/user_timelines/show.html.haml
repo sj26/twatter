@@ -1,5 +1,6 @@
 = extends "timeline/show" do
-  = replace :tweet_form do
+  - prepend :content do
     %h1= user
-  = prepend :tweets do
-    = render "users/nav"
+    = render partial: "users/nav", object: user, as: "user"
+  - append :sidebar do
+    = render partial: "users/sidebar", object: user, as: "user"

@@ -1,0 +1,12 @@
+= extends "timeline/show" do
+  - prepend :content do
+    - if user_signed_in?
+      = render "tweets/form"
+    %h1 All Tweets
+  - prepend :sidebar do
+    - if user_signed_in?
+      = render partial: "users/sidebar", object: current_user, as: "user"
+    - else
+      %p Twatter is a simple Twitter clone created for #{link_to "Railscamp", "http://railscamps.com"}. Share ideas and discover people and projects.
+      %p #{link_to "Sign in", new_user_session_path, class: "info btn"} to get started.
+
