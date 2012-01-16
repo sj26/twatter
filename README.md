@@ -34,6 +34,7 @@ Made by [Samuel Cochran](sj26@sj26.com) for [Railscamp X](http://railscamps.com)
 * Thread relation via callbacks for cheap threaded replies retrieval.
 * Deploy a demo somewhere. http://twatter.sj26.com maybe?
 * Code highlighting in backticks.
+* Better auto linking in tweet text.
 
 ## Wild ideas
 
