@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     Tweet.joins("LEFT JOIN follows ON follows.followee_id = tweets.user_id").where("tweets.user_id = ? OR follows.follower_id = ? OR tweets.text LIKE ?", id, id, "%@#{username.gsub("%", "%%")}%")
   end
 
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :username, :email, :password, :password_confirmation, :remember_me
   attr_accessible :avatar, :avatar_cache, :remove_avatar
 
   validates :username, presence: true, uniqueness: true, length: {minimum: 3, maximum: 15}, format: {with: /\A[a-z0-9._-]+\Z/i}

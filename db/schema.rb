@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120115130900) do
+ActiveRecord::Schema.define(:version => 20120116053229) do
 
   create_table "follows", :force => true do |t|
     t.integer  "follower_id", :null => false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120115130900) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar"
+    t.string   "name"
   end
 
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true

@@ -3,8 +3,10 @@
     - user.following.each do |followee|
       .followee
         = link_to followee do
-          .avatar= image_tag followee.avatar.list.url, alt: followee
-          .name= followee
+          .avatar= image_tag followee.avatar.list.url, alt: followee, width: 48, height: 48
+          .username= followee
+        - if followee.name?
+          .name= followee.name
         - if current_user == user
           .unfollow= link_to "Unfollow", unfollow_user_path(followee), class: "danger btn", data: {"standard-text" => "Following", "standard-class" => "success btn"}
 - else

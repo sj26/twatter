@@ -1,7 +1,9 @@
 .user.clearfix
   = link_to user do
-    .avatar= image_tag user.avatar.list.url
+    .avatar= image_tag user.avatar.list.url, alt: user, width: 48, height: 48
     .username= user
+  - if user.name?
+    .name= user.name
 .row
   .followers.span2
     = link_to user_followers_path(user) do

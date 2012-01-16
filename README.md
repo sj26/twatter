@@ -22,7 +22,6 @@ Made by [Samuel Cochran](sj26@sj26.com) for [Railscamp X](http://railscamps.com)
 
 ## TODO
 
-* User real names.
 * User biography.
 * Make mentions a relation maintained by callbacks.
 * Search.

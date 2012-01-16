@@ -1,8 +1,10 @@
 %div[tweet]
   .avatar
     = link_to tweet.user do
-      = image_tag tweet.user.avatar.list.url, alt: tweet.user
-  .user= link_to tweet.user, tweet.user
+      = image_tag tweet.user.avatar.list.url, alt: tweet.user, width: 48, height: 48
+  .username= link_to tweet.user, tweet.user
+  - if tweet.user.name?
+    .name= tweet.user.name
   .text= format_tweet tweet
   .bottom.clearfix
     .created_at= link_to "#{time_ago_in_words tweet.created_at} ago", tweet
