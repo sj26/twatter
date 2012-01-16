@@ -22,6 +22,7 @@ Made by [Samuel Cochran](sj26@sj26.com) for [Railscamp X](http://railscamps.com)
 
 ## TODO
 
+* Password changing.
 * Make mentions a relation maintained by callbacks.
 * Search.
 * Basic hashtags (based on search).
@@ -31,6 +32,8 @@ Made by [Samuel Cochran](sj26@sj26.com) for [Railscamp X](http://railscamps.com)
 * DRY up followers/followees
 * Inline reply expansion.
 * Thread relation via callbacks for cheap threaded replies retrieval.
+* Deploy a demo somewhere. http://twatter.sj26.com maybe?
+* Code highlighting in backticks.
 
 ## Wild ideas
 
