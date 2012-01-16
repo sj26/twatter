@@ -4,7 +4,7 @@ Twatter::Application.routes.draw do
   devise_for :users
 
   authenticate do
-    get :home, to: "home_timeline#show"
+    get :timeline, to: "home_timeline#show"
 
     resources :tweets, only: [:new, :create, :destroy]
     resources :users, path: "", only: [:edit, :update] do

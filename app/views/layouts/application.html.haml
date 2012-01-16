@@ -13,8 +13,8 @@
             = link_to "Twatter", root_path, class: "brand"
           - if user_signed_in?
             %ul.nav
-              = activated_content_tag :li, home_path, class: "home" do
-                = link_to "Timeline", home_path, class: "home"
+              = activated_content_tag :li, timeline_path, class: "home" do
+                = link_to "Timeline", timeline_path, class: "home"
           %ul.nav.secondary-nav
             - if user_signed_in?
               = activated_content_tag :li, new_tweet_path, class: "compose" do
