@@ -4,6 +4,8 @@ It's Twitter, but not.
 
 ![Screenshot of homepage](http://f.cl.ly/items/3H1x2Z1W0O1s082j1Z36/Screen%20Shot%202012-01-16%20at%2012.57.59%20PM.png)
 
+Demo: http://twatter.sj26.com/
+
 Made by [Samuel Cochran](sj26@sj26.com) for [Railscamp X](http://railscamps.com).
 
 ## Features
@@ -32,7 +34,6 @@ Made by [Samuel Cochran](sj26@sj26.com) for [Railscamp X](http://railscamps.com)
 * DRY up followers/followees
 * Inline reply expansion.
 * Thread relation via callbacks for cheap threaded replies retrieval.
-* Deploy a demo somewhere. http://twatter.sj26.com maybe?
 * Code highlighting in backticks.
 * Better auto linking in tweet text.
 
