@@ -1,0 +1,9 @@
+= extends :application do
+  - area :body do
+    .row
+      .span10.content
+        = area :content do
+          = yield
+      .span6.sidebar
+        = area :sidebar
+

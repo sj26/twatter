@@ -1,17 +1,12 @@
-.row
-  .span10.content
-    = area :content do
-      - if tweets.present?
-        = area :tweets do
-          .tweets
-            = render tweets
-      - else
-        = area :no_tweets do
-          %p.no-tweets None yet.
-      = area :pagination do
-        - if params[:page].present? and params[:page].to_i > 0
-          = link_to "&lsaquo; Newer".html_safe, url_for(params.merge(page: params[:page].to_i - 1)), class: "btn"
-        - if tweets.offset((params[:page].to_i + 1) * 20).exists?
-          = link_to "Older &rsaquo;".html_safe, url_for(params.merge(page: params[:page].to_i + 1)), class: "btn"
-  .span6.sidebar
-    = area :sidebar
+- if tweets.present?
+  = area :tweets do
+    .tweets
+      = render tweets
+- else
+  = area :no_tweets do
+    %p.no-tweets None yet.
+= area :pagination do
+  - if params[:page].present? and params[:page].to_i > 0
+    = link_to "&lsaquo; Newer".html_safe, url_for(params.merge(page: params[:page].to_i - 1)), class: "btn"
+  - if tweets.offset((params[:page].to_i + 1) * 20).exists?
+    = link_to "Older &rsaquo;".html_safe, url_for(params.merge(page: params[:page].to_i + 1)), class: "btn"
