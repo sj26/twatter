@@ -5,6 +5,8 @@
         = link_to followee do
           .avatar= image_tag followee.avatar.list.url, alt: followee
           .name= followee
+        - if current_user == user
+          .unfollow= link_to "Unfollow", unfollow_user_path(followee), class: "danger btn", data: {"standard-text" => "Following", "standard-class" => "success btn"}
 - else
   %p Nobody!
 

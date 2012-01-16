@@ -30,6 +30,7 @@ Made by [Samuel Cochran](sj26@sj26.com) for [Railscamp X](http://railscamps.com)
 * Make hashtags a relation maintained by callbacks.
 * API compatible with `api.twitter.com`.
 * Better design.
+* DRY up followers/followees
 
 ## Wild ideas
 

@@ -1,9 +1,14 @@
 - if user.followers.present?
   .followers
-    - user.followers.each do
+    - user.followers.each do |follower|
       .follower
         = link_to follower do
           .avatar= image_tag follower.avatar.list.url, alt: follower
           .name= follower
+        - if current_user == user
+          - if current_user.follower_follows.exists?(followee_id: follower.id)
+            .unfollow= link_to "Unfollow", unfollow_user_path(follower), class: "danger btn", data: {"standard-text" => "Following", "standard-class" => "success btn"}
+          - else
+            .follow= link_to "Follow", follow_user_path(follower), class: "success btn"
 - else
   %p Nobody!
