@@ -25,7 +25,7 @@ jQuery ($) ->
       e.preventDefault()
       $tweet = $(e.target).parents(".tweet")
       id = $tweet.attr("id").match(/^tweet_(\d+)$/)[1]
-      name = $tweet.find('.user').text()
+      name = $tweet.find('.username').text()
       $form.find("#tweet_reply_to_id").val id
       $form.find("h2").text "Reply to #{name}"
       $textarea = $form.find("textarea")
