@@ -31,6 +31,8 @@ Made by [Samuel Cochran](sj26@sj26.com) for [Railscamp X](http://railscamps.com)
 * API compatible with `api.twitter.com`.
 * Better design.
 * DRY up followers/followees
+* Inline reply expansion.
+* Thread relation via callbacks for cheap threaded replies retrieval.
 
 ## Wild ideas
 
