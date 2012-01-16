@@ -4,6 +4,9 @@
     .username= user
   - if user.name?
     .name= user.name
+- if user.biography?
+  .biography.clearfix
+    = simple_format user.biography
 .row
   .followers.span2
     = link_to user_followers_path(user) do

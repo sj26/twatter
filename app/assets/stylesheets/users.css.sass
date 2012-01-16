@@ -11,9 +11,24 @@ body.user-timelines-show, body.mentions-index, body.followees-index, body.follow
   clear: both
   margin-top: 10px
 
-.sidebar .user
-  line-height: 48px
-  a, .name
-    float: left
-  .name
-    margin-left: 0.5em
+.sidebar
+  .user
+    line-height: 48px
+    a, .name
+      float: left
+    .avatar img
+      vertical-align: middle
+    .name
+      margin-left: 0.5em
+      color: #666
+  .biography
+    margin-top: 1em
+    color: #666
+
+form.edit_user
+  .biography textarea
+    display: block
+    box-sizing: border-box
+    width: 100%
+    height: 3 * 18px + 4px * 2
+

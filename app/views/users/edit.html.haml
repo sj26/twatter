@@ -3,18 +3,26 @@
 = form_for user do |form|
 
   %fieldset
-
-    .name.clearfix
-      = form.label :name
-      .input= form.text_field :name
+    %legend Account
 
     .username.clearfix
       = form.label :username
       .input= form.text_field :username
 
+  %fieldset
+    %legend Profile
+
+    .name.clearfix
+      = form.label :name
+      .input= form.text_field :name
+
     .email.clearfix
       = form.label :email
       .input= form.email_field :email
+
+    .biography.clearfix
+      = form.label :biography
+      .input= form.text_area :biography
 
   %fieldset
     %legend Avatar

@@ -1,5 +1,5 @@
 jQuery ($) ->
-  $("#new_tweet").each ->
+  $("form.new_tweet").each ->
     $form = $(this)
     $textarea = $form.find("textarea")
     $charsLeft = $('<span class="chars-left">140</span>')
@@ -21,7 +21,7 @@ jQuery ($) ->
         $hideShow.show()
 
   $(".tweets").on "click", ".tweet .reply a", (e) ->
-    if ($form = $("#new_tweet").first()).length
+    if ($form = $("form.new_tweet").first()).length
       e.preventDefault()
       $tweet = $(e.target).parents(".tweet")
       id = $tweet.attr("id").match(/^tweet_(\d+)$/)[1]
