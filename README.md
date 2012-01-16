@@ -6,6 +6,38 @@ It's Twitter, but not.
 
 Made by [Samuel Cochran](sj26@sj26.com) for [Railscamp X](http://railscamps.com).
 
+## Features
+
+* Simple sign in/up -- set a username/password on first sign in.
+* Create, list and destroy tweets.
+* Reply to tweets.
+* Simple mentions.
+* Following.
+* Public timeline.
+* Home timeline of own tweets, mentions and followed tweets.
+* User timelines.
+* User followers and following lists.
+* Profile editing.
+* Avatars.
+
+## TODO
+
+* User followers/following should be tabs.
+* User real names.
+* User biography.
+* Make mentions a relation maintained by callbacks.
+* Search.
+* Basic hashtags (based on search).
+* Make hashtags a relation maintained by callbacks.
+* API compatible with `api.twitter.com`.
+* Better design.
+
+## Wild ideas
+
+* Banajour integration -- user banajour repo setting, potentially listing recent commits in sidebar?
+* Ideagora integration? Cross posting/streams, mentions, ...?
+* New-new twitter-like interface -- backbone/spine/something?
+
 ## License
 
 MIT (see LICENSE)
