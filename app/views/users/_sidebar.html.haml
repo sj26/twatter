@@ -1,13 +1,16 @@
-.user.clearfix
-  = link_to user do
-    .avatar= image_tag user.avatar.list.url, alt: user, width: 48, height: 48
-    .username= user
+.user.clearfix{class: ("with-name" if user.name?)}
+  .avatar
+    = link_to image_path(user.avatar.url) do
+      = image_tag user.avatar.list.url, alt: user, width: 48, height: 48
   - if user.name?
     .name= user.name
+  .username
+    = link_to user do
+      @#{user}
 - if user.biography?
   .biography.clearfix
     = simple_format user.biography
-.row
+.stats.row
   .followers.span2
     = link_to user_followers_path(user) do
       %output= user.followers.count

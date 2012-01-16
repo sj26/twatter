@@ -13,17 +13,28 @@ body.user-timelines-show, body.mentions-index, body.followees-index, body.follow
 
 .sidebar
   .user
-    line-height: 48px
-    a, .name
+    position: relative
+    padding-left: 10px + 48px
+    &:not(.with-name)
+      line-height: 48px
+    .avatar
+      position: relative
       float: left
-    .avatar img
-      vertical-align: middle
+      margin-left: -58px
+      img
+        vertical-align: middle
     .name
-      margin-left: 0.5em
       color: #666
+      margin-top: 6px
+    .username
+      font-size: 15px
   .biography
     margin-top: 1em
     color: #666
+    p:last-of-type
+      margin-bottom: 0
+  .stats
+    margin-top: 1em
 
 form.edit_user
   .biography textarea
