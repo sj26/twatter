@@ -8,3 +8,9 @@ body.followers .follower, body.followees .followee
   .name
     line-height: 48px
 
+div.followers .follower, div.followees .followee
+  &:not(:first-of-type)
+    margin-top: 10px
+    border-top: 1px solid #eee
+    padding-top: 10px
+

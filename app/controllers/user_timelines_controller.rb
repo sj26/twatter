@@ -1,4 +1,5 @@
 class UserTimelinesController < TimelineController
+  layout "user"
 
 protected
 

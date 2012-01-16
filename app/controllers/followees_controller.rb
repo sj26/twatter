@@ -1,4 +1,5 @@
 class FolloweesController < ApplicationController
+  layout "user"
 
 protected
 

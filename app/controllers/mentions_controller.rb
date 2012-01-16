@@ -1,4 +1,6 @@
 class MentionsController < TimelineController
+  layout "user"
+
 protected
 
   def tweets

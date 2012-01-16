@@ -1,0 +1,9 @@
+= extends :content_and_sidebar do
+  = area :title do
+    %h1= user
+  = area :nav do
+    = render partial: "users/nav", object: user, as: "user"
+  = yield
+  - prepend :sidebar do
+    = area :profile do
+      = render partial: "users/sidebar", object: user, as: "user"

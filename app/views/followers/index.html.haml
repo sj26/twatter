@@ -1,7 +1,9 @@
-%h1 #{user} is followed by
 - if user.followers.present?
   .followers
     - user.followers.each do
-      .follower= link_to user, user
+      .follower
+        = link_to follower do
+          .avatar= image_tag follower.avatar.list.url, alt: follower
+          .name= follower
 - else
   %p Nobody!

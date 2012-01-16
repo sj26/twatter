@@ -16,3 +16,7 @@
       = link_to "Timeline", user_timeline_path(user)
     = activated_content_tag :li, user_mentions_path(user) do
       = link_to "Mentions", user_mentions_path(user)
+    = activated_content_tag :li, user_followees_path(user) do
+      = link_to "Following", user_followees_path(user)
+    = activated_content_tag :li, user_followers_path(user) do
+      = link_to "Followers", user_followers_path(user)
