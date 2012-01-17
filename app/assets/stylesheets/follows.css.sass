@@ -1,19 +1,32 @@
-body.followers .follower, body.followees .followee
+.followers-index-action .follower, .followees-index-action .followee
   clear: both
   position: relative
   padding-left: 10px + 48px
+  min-height: 48px
+  &, p, a
+    font-size: 15px
+    line-height: 19px
   .avatar
-    position: relative
-    float: left
+    position: absolute
     margin-left: -58px
-  .username, .name
+  .username
     float: left
-    line-height: 48px
+    font-weight: bold
+  &:not(:hover) .username
+    color: #333
   .name
+    float: left
     margin-left: 0.5em
+    font-size: 85%
+    color: #666
   .follow, .unfollow
     float: right
-    line-height: 48px
+  .biography
+    clear: left
+    display: block
+    padding-top: 0.25em
+    font: italic 13px/18px Georgia, Palatino, serif
+    color: #666
 
 div.followers .follower, div.followees .followee
   &:not(:first-of-type)

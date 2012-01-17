@@ -1,15 +1,20 @@
-body.user-timelines-show, body.mentions-index, body.followees-index, body.followers-index
-  .content
-    h1
+
+.content
+  .user
+    display: block
+    position: relative
+    padding-left: 128px + 10px
+    .avatar
+      position: relative
       float: left
-      .name
-        color: #999
-.user_actions
-  float: right
-  line-height: 36px
-.user_tabs
-  clear: both
-  margin-top: 10px
+      margin-left: -128px - 10px
+    hgroup
+      h1, h2
+        display: block
+        margin: 0
+  .user_tabs
+    clear: both
+    padding-top: 10px
 
 .sidebar
   .user
@@ -20,7 +25,7 @@ body.user-timelines-show, body.mentions-index, body.followees-index, body.follow
     .avatar
       position: relative
       float: left
-      margin-left: -58px
+      margin-left: -48px - 10px
       img
         vertical-align: middle
     .name
