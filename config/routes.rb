@@ -20,6 +20,6 @@ Twatter::Application.routes.draw do
   resources :users, path: "", only: [] do
     resources :followers, only: :index
     resources :followees, only: :index, path: "following"
-    resources :mentions, only: :index
+    resource :mention_timeline, only: :show, path: "mentions"
   end
 end

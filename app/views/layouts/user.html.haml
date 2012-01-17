@@ -21,8 +21,8 @@
     %ul.tabs.user_tabs
       = activated_content_tag :li, user_timeline_path(user), exact: true do
         = link_to "Tweets", user_timeline_path(user)
-      = activated_content_tag :li, user_mentions_path(user) do
-        = link_to "Mentions", user_mentions_path(user)
+      = activated_content_tag :li, user_mention_timeline_path(user) do
+        = link_to "Mentions", user_mention_timeline_path(user)
       = activated_content_tag :li, user_followees_path(user) do
         = link_to "Following", user_followees_path(user)
       = activated_content_tag :li, user_followers_path(user) do

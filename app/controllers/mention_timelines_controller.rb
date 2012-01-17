@@ -1,4 +1,4 @@
-class MentionsController < TimelineController
+class MentionTimelinesController < TimelineController
   layout "user"
 
 protected
